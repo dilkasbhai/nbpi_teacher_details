@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat with GPT</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #chatBox {
+      height: 300px;
+      overflow-y: scroll;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    #userInput {
+      width: 70%;
+      padding: 8px;
+    }
+    #sendButton {
+      width: 28%;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Chat with GPT</h1>
+  </header>
+  <main>
+    <div id="chatBox"></div>
+    <div>
+      <input type="text" id="userInput" placeholder="Type a message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </main>
+
+  <script>
+    function sendMessage() {
+      const userInput = document.getElementById('userInput').value;
+      appendMessage('user', userInput);
+
+      // Placeholder for GPT response (replace with actual GPT integration).
+      const gptResponse = simulateGPTResponse(userInput);
+      appendMessage('gpt', gptResponse);
+
+      // Clear the input field after sending the message.
+      document.getElementById('userInput').value = '';
+    }
+
+    function appendMessage(sender, message) {
+      const chatBox = document.getElementById('chatBox');
+      const messageElement = document.createElement('div');
+      messageElement.className = sender === 'user' ? 'user-message' : 'gpt-message';
+      messageElement.textContent = `${sender.charAt(0).toUpperCase() + sender.slice(1)}: ${message}`;
+      chatBox.appendChild(messageElement);
+
+      // Scroll to the bottom of the chat box to show the latest message.
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function simulateGPTResponse(userInput) {
+      // Placeholder function simulating GPT response.
+      // In a real scenario, replace this with actual GPT integration.
+      return `I'm a GPT model, and you said: "${userInput}"`;
+    }
+  </script>
+</body>
+</html>

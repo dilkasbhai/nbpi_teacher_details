@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBPI Teachers Details(by Dilkash Shekh)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .profile {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border: 3px solid #000;
+            border-radius: 4px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .profile h3 {
+            margin-top: 0;
+            color: #fff;
+            background-color: #2196F3;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .hidden-data {
+            display: none;
+        }
+
+        #profile-image-preview {
+            width: 100px;
+            height: 100px;
+            margin: 10px 0;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #4caf50;
+        }
+
+        #profile-image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .facebook-link {
+            color: #2196F3;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        h3 , h4 
+        {
+            padding: 0px;
+            margin: 0px;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <h1>NBPI Teachers Details (by Dilkash Shekh)</h1><br>
+    <h3 div="coll"><marquee behavior="alternate" direction="left" bgcolor="blue" style="color: white;" c>Develop & Design by Dilkash Shekh</marquee></h3>
+
+    <h4> <marquee behavior="" direction="right" bgcolor="yellow" style="color: red;"">Copyright Disclaimer All Right Reserved @ by Dilkash Shekh</marquee></h4>
+    
+    <h3 style="color: #2196F3;">Click Profile for details</h3>
+
+    <div id="profiles-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const profilesContainer = document.getElementById('profiles-container');
+            const maxTeachers = 15;
+
+            const teachers = [
+                {
+                    fullName: "Suraj Hekka",
+                    gender: "Male",
+                    status: "Married",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "Web Technology",
+                    address: "Banepa",
+                    email: "surajhekka@gmail.com",
+                    degree: "M.D in Computer",
+                    facebookLink: "https://www.facebook.com/suraj.hekka",
+                    photo: "./suraj.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+                // Add 14 more teachers with similar structure
+
+
+                {
+                    fullName: "Anup Bhuju ",
+                    gender: "Male",
+                    status: "Married",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "Programming",
+                    address: "Bhaktapur,Nepal",
+                    email: "anupbhuju@gmail.com",
+                    degree: "M.D in Computer",
+                    facebookLink: "https://www.facebook.com/photo?fbid=10231586019569582&set=a.1556938759402",
+                    photo: "./anup.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+
+
+                {
+                    fullName: "Reet Sh ",
+                    gender: "Female",
+                    status: "Married",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "Digital Logic & Electrical",
+                    address: "Kathmandu, Nepal",
+                    email: "reetSh@gmail.com",
+                    degree: "M.D. in Computer Science",
+                    facebookLink: "https://www.facebook.com/reet.sh/about",
+                    photo: "./reet.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+
+
+                {
+                    fullName: "Rajendra Shrestha ",
+                    gender: "Male",
+                    status: "Married",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "Physics",
+                    address: "Bhaktapur,Nepal",
+                    email: "rajendrashreshtha@gmail.com",
+                    degree: "Ph.D. in Physics",
+                    facebookLink: "https://www.facebook.com/rajendra.shrestha.77985/about",
+                    photo: "./rajendra.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+
+                {
+                    fullName: "Bharat Sapkota",
+                    gender: "Male",
+                    status: "Married",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "Chemistry",
+                    address: "Chitwan,Nepal",
+                    email: "bharatsapkota@gmail.com",
+                    degree: "M.D",
+                    facebookLink: "https://www.facebook.com/bharat.sapkota.908/about",
+                    photo: "./bharat.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+
+
+                {
+                    fullName: "Bikesh Chansi ",
+                    gender: "Male",
+                    status: "Married",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "Programming",
+                    address: "Kathmandu,Nepal",
+                    email: "bikeshchansi@gmail.com",
+                    degree: "M.D in Computer",
+                    facebookLink: "https://www.facebook.com/profile.php?id=100013798279350",
+                    photo: "./bikesh.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+
+
+                {
+                    fullName: "Nishan Shrestha",
+                    gender: "Male",
+                    status: "Married",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "Laboratory",
+                    address: "Bhaktapur,Nepal",
+                    email: "nishanshrestha@gmail.com",
+                    degree: "M.D",
+                    facebookLink: "https://www.facebook.com/profile.php?id=100009136635090",
+                    photo: "./nishan.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+
+
+                {
+                    fullName: "Madan Khatri ",
+                    gender: "Male",
+                    status: "Married",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "Electrical;",
+                    address: "Kathmandu,Nepal",
+                    email: "madankhatri@gmail.com",
+                    degree: "M.D",
+                    facebookLink: "https://www.facebook.com/madan.khatri.54",
+                    photo: "./madan.jpg"// Replace with the actual profile photo link
+                    
+                    
+                },
+
+
+                {
+                    fullName: "NeeSha Vhochhivhoya ",
+                    gender: "Female",
+                    status: "Married",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "Eng.Drawing",
+                    address: "Banepa Bazar,Nepal",
+                    email: "neeshavhochhivhoya@gmail.com",
+                    degree: "M.D",
+                    facebookLink: "https://www.facebook.com/neesha.vochhivoya/about",
+                    photo: "./nisa.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+
+
+                {
+                    fullName: "Manu Maharjan",
+                    gender: "Female",
+                    status: "Married",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "H.M",
+                    address: "Banepa Bazar, Nepal",
+                    email: "manumaharjan@gmail.com",
+                    degree: "M.D",
+                    facebookLink: "https://www.facebook.com/manu.maharjan.3?comment_id=Y29tbWVudDozMjg0NDUyNTE1MDMyNTYyXzI0MTQzMzc1MzIwOTE1Mzg%3D",
+                    photo: "./manu.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+
+
+                {
+                    fullName: "Prakash KC ",
+                    gender: "Male",
+                    status: "Married",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "Office Work",
+                    address: "Tanahun, Nepal",
+                    email: "prakashkc@gmail.com",
+                    degree: "M.D",
+                    facebookLink: "https://www.facebook.com/profile.php?id=100043411171471",
+                    photo: "./prakash.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+
+
+                {
+                    fullName: "Destructer Devastrator",
+                    gender: "Male",
+                    status: "Single",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "Electrical",
+                    address: " Kathmandu, Nepal",
+                    email: "destructer_devastrator@gmail.com",
+                    degree: "M.D",
+                    facebookLink: "https://www.facebook.com/rukesh.manandhar.31",
+                    photo: "./dev.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+
+
+                {
+                    fullName: "Pradeep Shrestha ",
+                    gender: "Male",
+                    status: "Married",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "Eng.BenchWork",
+                    address: "Thimi, Nepal",
+                    email: "pradeep_shrestha@gmail.com",
+                    degree: "M.D",
+                    facebookLink: "https://www.facebook.com/pradeep.shrestha.52831",
+                    photo: "./pradeep.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+
+
+                {
+                    fullName: "JRaj Deuja ",
+                    gender: "Male",
+                    status: "Married",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "H.M",
+                    address: "Banepa,Nepal",
+                    email: "jRajdeuja@gmail.com",
+                    degree: "M.D",
+                    facebookLink: "https://www.facebook.com/jraj.deuja/about",
+                    photo: "./jraj.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+
+
+                {
+                    fullName: "Dinesh Humagain ",
+                    gender: "Male",
+                    status: "Married",
+                    teachingIn: "NBPI",
+                    citizen: "Nepali",
+                    teaching: "English",
+                    address: "Dhulikhel,Nepal",
+                    email: "dinesh_humagain@gmail.com",
+                    degree: "M.D",
+                    facebookLink: "https://www.facebook.com/dhumagain1",
+                    photo: "./dinesh.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+
+
+                {
+                    fullName: "John Doe",
+                    gender: "Male",
+                    status: "Teaching",
+                    teachingIn: "Computer Science",
+                    citizen: "Nepali",
+                    teaching: "Programming",
+                    address: "123 Main St, Cityville",
+                    email: "name@gmail.com",
+                    degree: "Ph.D. in Computer Science",
+                    facebookLink: "https://www.facebook.com/johndoe",
+                    photo: "./1.jpg" // Replace with the actual profile photo link
+                    
+                    
+                },
+            ];
+
+            for (let i = 0; i < Math.min(teachers.length, maxTeachers); i++) {
+                const teacher = teachers[i];
+
+                const profileDiv = document.createElement('div');
+                profileDiv.classList.add('profile');
+                profileDiv.innerHTML = `
+                    <div id="profile-image-preview">
+                        <img src="${teacher.photo}" alt="Profile Photo">
+                    </div>
+                    <h3>${teacher.fullName}</h3>
+                    <div class="hidden-data">
+                        <ul>
+                            <li><strong>Gender:</strong> ${teacher.gender}</li>
+                            <li><strong>Status:</strong> ${teacher.status}</li>
+                            <li><strong>Teaching In:</strong> ${teacher.teachingIn}</li>
+                            <li><strong>Citizen:</strong> ${teacher.citizen}</li>
+                            <li><strong>Teaching:</strong> ${teacher.teaching}</li>
+                            <li><strong>Address:</strong> ${teacher.address}</li>
+                            <li><strong>Email Address:</strong> ${teacher.email}</li>
+                            <li><strong>Degree:</strong> ${teacher.degree}</li>
+                            <li><strong>Facebook Link:</strong> <span class="facebook-link" onclick="openFacebook('${teacher.facebookLink}')">${teacher.facebookLink}</span></li>
+                        </ul>
+                    </div>
+                `;
+                profilesContainer.appendChild(profileDiv);
+
+                // Toggle hidden data on click
+                profileDiv.addEventListener('click', () => {
+                    const hiddenData = profileDiv.querySelector('.hidden-data');
+                    hiddenData.style.display = hiddenData.style.display === 'none' ? 'block' : 'none';
+                });
+            }
+        });
+
+        function openFacebook(link) {
+            window.open(link, '_blank');
+        }
+    </script>
+</body>
+
+</html>
